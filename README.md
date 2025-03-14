@@ -1,6 +1,6 @@
 # Employee Management System - Spring Boot
 
-This is a simple Employee Management System built using Spring Boot with PostgreSQL as the database. The system includes CRUD operations for Employees, Departments, and Designations.
+This is a simple Employee Management System built using Spring Boot with PostgreSQL as the database. The system includes CR operations for Employees, Departments, and Designations.
 
 ## Features
 - Create, Read Employees
@@ -32,7 +32,7 @@ This is a simple Employee Management System built using Spring Boot with Postgre
    }
    ```
 
-2. **Get Employee by ID** - `GET /emp/getEmp/{id}`
+2. **Get All Employees** - `GET /emp/getAllEmp`
 
 ### Department Endpoints
 1. **Create Department** - `POST /dept/createDept`
@@ -60,8 +60,8 @@ This is a simple Employee Management System built using Spring Boot with Postgre
 CREATE TABLE employee (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100),
-    email VARCHAR(100) UNIQUE NOT NULL,
-    phone BIGINT UNIQUE NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone BIGINT NOT NULL,
     designation BIGINT REFERENCES designation(id),
     department BIGINT REFERENCES department(id)
 );
@@ -71,7 +71,7 @@ CREATE TABLE employee (
 ```sql
 CREATE TABLE department (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(100) UNIQUE NOT NULL
+    name VARCHAR(100) NOT NULL
 );
 ```
 
@@ -79,7 +79,7 @@ CREATE TABLE department (
 ```sql
 CREATE TABLE designation (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(100) UNIQUE NOT NULL,
+    name VARCHAR(100) NOT NULL,
     salary BIGINT NOT NULL
 );
 ```
