@@ -111,10 +111,3 @@ CREATE TABLE designation (
    ```sh
    mvn spring-boot:run
    ```
-
-## Contributing
-Feel free to fork the repository and raise pull requests.
-
-## License
-MIT License
-
